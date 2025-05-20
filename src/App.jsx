@@ -13,15 +13,14 @@ function App() {
       try {
         const res = await fetch("https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books");
         const data = await res.json();
-        setBooks(data); // Access the books array from the response
+        setBooks(data);
       } catch (error) {
         console.error("Error fetching books:", error);
       }
     };
 
     getBooks();
-    
-    // Load favorite from localStorage
+  
     const storedFavorite = localStorage.getItem("favoriteBook");
     if (storedFavorite) {
       setFavoriteBook(JSON.parse(storedFavorite));
